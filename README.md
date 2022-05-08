@@ -14,7 +14,26 @@ From `133742` to `hgb95qpcy4y50`
 
 ## How it works
 
-Blowfish (from `golang.org/x/crypto`) because:
+Use of Blowfish (from `golang.org/x/crypto`) because:
  * it works on 64-bit blocks (the secret key can be much larger though),
- * provides [format-preserving encryption](https://en.wikipedia.org/wiki/Format-preserving_encryption)
+ * it provides [format-preserving encryption](https://en.wikipedia.org/wiki/Format-preserving_encryption)
    (the encrypted ID is an `uint64` integer as well.)
+
+## Usage
+
+Code:
+```go
+hider, _ := idhider.NewIDHider([]byte("xxxxxxxxxxxxxxxx")) // 128-bit secret key
+var id uint64 = 42
+fmt.Println("Internal ID (secret):", id)
+hid := hider.HumanPublicID(id)
+fmt.Println("Human public ID:", hid)
+fmt.Println("Back to internal secret ID:", hider.HumanToID(hid))
+```
+
+Output:
+```console
+Internal ID (secret): 42
+Human public ID: m1n033ptmfrxp
+Back to internal secret ID: 42
+```
