@@ -1,4 +1,4 @@
-module idhider
+module github.com/enzzc/idhider
 
 go 1.16
 
