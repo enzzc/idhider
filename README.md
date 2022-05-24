@@ -29,7 +29,7 @@ That lets an attacker "forge" valid obfuscated IDs (valid ciphertexts) to try
 to gain access to unauthorized resources, thus dismissing some use cases.
 
 Examples of **invalid** use cases:
- * as a token for a password reset flow flow
+ * as a token for a password reset flow
  * as a token that is part of a secret shareable URL
 
 The typical valid use case: prevent from disclosing internal information,
